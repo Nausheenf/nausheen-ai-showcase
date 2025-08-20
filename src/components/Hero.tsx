@@ -41,6 +41,7 @@ export function Hero() {
           <Button 
             size="lg" 
             className="bg-accent hover:bg-accent/90 text-accent-foreground hover-lift group px-8 py-3 text-lg font-semibold"
+            onClick={() => window.open("https://drive.google.com/file/d/1F7S_vCAkQJ_3JorCOFf08JeONLYW39YM/view?usp=drivesdk", '_blank')}
           >
             <Download className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
             Download Resume

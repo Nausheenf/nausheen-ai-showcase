@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Heart, ArrowUp, Linkedin, Github, Mail, MessageSquare } from "lucide-react";
+import { Heart, ArrowUp, Linkedin, Github, Mail, MessageSquare, Code2, Trophy } from "lucide-react";
 
 export function Footer() {
   const quickLinks = [
@@ -15,14 +15,26 @@ export function Footer() {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      link: "https://linkedin.com/in/nausheen-fathima",
+      link: "https://www.linkedin.com/in/nausheen-fathima-5a529b2aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       color: "hover:text-blue-400"
     },
     {
       icon: Github,
       label: "GitHub", 
-      link: "https://github.com/nausheenfathima",
+      link: "https://github.com/Nausheenf",
       color: "hover:text-gray-300"
+    },
+    {
+      icon: Code2,
+      label: "LeetCode",
+      link: "https://leetcode.com/u/Nausheen_fathima/",
+      color: "hover:text-orange-400"
+    },
+    {
+      icon: Trophy,
+      label: "HackerRank",
+      link: "https://www.hackerrank.com/profile/nausheenf260",
+      color: "hover:text-emerald-400"
     },
     {
       icon: Mail,
@@ -115,19 +127,26 @@ export function Footer() {
               </div>
               
               {/* Social Links */}
-              <div className="flex space-x-4">
+              <div className="flex flex-wrap gap-3">
                 {socialLinks.map((social, index) => (
                   <Button
                     key={index}
                     variant="ghost"
                     size="sm"
-                    className={`hover-lift rounded-full w-10 h-10 p-0 text-primary-foreground/80 ${social.color}`}
+                    className={`hover-lift rounded-full w-12 h-12 p-0 text-primary-foreground/80 ${social.color} group relative overflow-hidden`}
                     onClick={() => window.open(social.link, '_blank')}
                   >
-                    <social.icon className="h-4 w-4" />
+                    <div className="absolute inset-0 bg-accent/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full"></div>
+                    <social.icon className="h-5 w-5 relative z-10 group-hover:scale-110 transition-transform duration-200" />
                     <span className="sr-only">{social.label}</span>
                   </Button>
                 ))}
+              </div>
+              
+              {/* Creative badge */}
+              <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full bg-accent/20 text-accent text-xs">
+                <Code2 className="w-3 h-3 mr-1" />
+                Coding across platforms
               </div>
             </div>
           </div>

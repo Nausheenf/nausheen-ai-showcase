@@ -14,7 +14,9 @@ import {
   MessageSquare,
   Send,
   User,
-  FileText
+  FileText,
+  Code2,
+  Trophy
 } from "lucide-react";
 
 export function Contact() {
@@ -91,26 +93,44 @@ export function Contact() {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      link: "https://linkedin.com/in/nausheen-fathima",
-      color: "text-blue-600 hover:text-blue-700"
+      link: "https://www.linkedin.com/in/nausheen-fathima-5a529b2aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      color: "text-blue-600 hover:text-blue-700",
+      gradient: "from-blue-600 to-blue-700"
     },
     {
       icon: Github,
       label: "GitHub",
-      link: "https://github.com/nausheenfathima",
-      color: "text-gray-800 hover:text-gray-900"
+      link: "https://github.com/Nausheenf",
+      color: "text-gray-800 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white",
+      gradient: "from-gray-800 to-gray-900"
+    },
+    {
+      icon: Code2,
+      label: "LeetCode",
+      link: "https://leetcode.com/u/Nausheen_fathima/",
+      color: "text-orange-600 hover:text-orange-700",
+      gradient: "from-orange-600 to-orange-700"
+    },
+    {
+      icon: Trophy,
+      label: "HackerRank",
+      link: "https://www.hackerrank.com/profile/nausheenf260",
+      color: "text-emerald-600 hover:text-emerald-700",
+      gradient: "from-emerald-600 to-emerald-700"
     },
     {
       icon: Mail,
       label: "Email",
       link: "mailto:nausheenf260@gmail.com",
-      color: "text-red-600 hover:text-red-700"
+      color: "text-red-600 hover:text-red-700",
+      gradient: "from-red-600 to-red-700"
     },
     {
       icon: MessageSquare,
       label: "WhatsApp",
       link: "https://wa.me/919902378914",
-      color: "text-green-600 hover:text-green-700"
+      color: "text-green-600 hover:text-green-700",
+      gradient: "from-green-600 to-green-700"
     }
   ];
 
@@ -156,20 +176,29 @@ export function Contact() {
             
             {/* Social Links */}
             <div>
-              <h4 className="font-semibold text-primary mb-4">Connect on Social</h4>
-              <div className="flex flex-wrap gap-4">
+              <h4 className="font-semibold text-primary mb-6">Connect & Explore</h4>
+              <div className="grid grid-cols-2 gap-3">
                 {socialLinks.map((social, index) => (
                   <Button
                     key={index}
                     variant="outline"
                     size="sm"
-                    className="hover-lift"
+                    className="hover-lift group relative overflow-hidden border-none bg-gradient-to-br from-background/50 to-background/80 backdrop-blur-sm hover:scale-105 transition-all duration-300"
                     onClick={() => window.open(social.link, '_blank')}
                   >
-                    <social.icon className={`w-4 h-4 mr-2 ${social.color}`} />
-                    {social.label}
+                    <div className={`absolute inset-0 bg-gradient-to-r ${social.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+                    <social.icon className={`w-4 h-4 mr-2 ${social.color} group-hover:scale-110 transition-transform duration-200`} />
+                    <span className="relative z-10 font-medium">{social.label}</span>
                   </Button>
                 ))}
+              </div>
+              
+              {/* Creative showcase */}
+              <div className="mt-6 p-4 rounded-lg bg-accent/5 border border-accent/20">
+                <p className="text-sm text-muted-foreground text-center">
+                  <Trophy className="inline w-4 h-4 mr-1 text-accent" />
+                  Follow my coding journey across platforms
+                </p>
               </div>
             </div>
             
